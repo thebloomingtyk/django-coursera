@@ -63,8 +63,8 @@
 
             -->
 
-            {% if user.is_authenticated %}
-    <form id="questionform" action="{% url 'submit_exam' %}" method="post">
+    {% if user.is_authenticated %}
+    <form id="questionform" action="{% url 'onlinecourse:submit_exam' course.id %}" method="post">
         {% csrf_token %}
         <!-- <HINT> Each example will have many questions -->
         {% for question in exam_questions %}
